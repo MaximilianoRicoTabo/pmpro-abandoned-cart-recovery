@@ -1,6 +1,6 @@
 ![](pmpro-abandoned-cart-recovery-banner.jpg)
 
-# [Paid Memberships Pro - Abandoned Cart Recovery](https://www.paidmembershipspro.com/add-ons/) #
+# [Paid Memberships Pro - Abandoned Cart Recovery](https://www.paidmembershipspro.com/add-ons/abandoned-cart-recovery/) #
 [comment]: # (Generate badges from shields.io, only works for .org plugins to get other stats etc. We'd have to create our own endpoints for Premium plugins)
 
 ![License](https://img.shields.io/badge/license-GPL--3.0%2B-red.svg?style=flat-square)
@@ -9,10 +9,10 @@
 
 Recover lost revenue by capturing abandoned carts and following up with customers to complete their purchase.
 
-For more information please visit [www.paidmembershipspro.com/add-ons/](https://www.paidmembershipspro.com/add-ons/)
+For more information please visit [www.paidmembershipspro.com/add-ons/abandoned-cart-recovery](https://www.paidmembershipspro.com/add-ons/abandoned-cart-recovery/)
 
 ## Installation ##
-For detailed installation steps, visit the [documentation](https://www.paidmembershipspro.com/add-ons/) page.
+For detailed installation steps, visit the [documentation](https://www.paidmembershipspro.com/add-ons/abandoned-cart-recovery/) page.
 
 1. Download the current development ZIP file directly: `https://github.com/strangerstudios/pmpro-abandoned-cart-recovery/archive/dev.zip`
 

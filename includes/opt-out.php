@@ -3,7 +3,7 @@
 /**
  * Process opt-out requests.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmproacr_process_opt_out() {
 	global $wpdb;
@@ -39,7 +39,7 @@ add_action( 'wp', 'pmproacr_process_opt_out' );
 /**
  * Show a banner confirming the opt-out request.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmproacr_show_opt_out_banner() {
 	// $_REQUEST['pmproacr_opt_out'] is the email address to opt out.
@@ -48,7 +48,11 @@ function pmproacr_show_opt_out_banner() {
 	// Show the banner.
 	?>
 	<div class="pmproacr-opt-out-banner pmproacr-opt-out-banner-success">
-		<p><?php echo esc_html( sprintf( __( 'You have successfully opted out of abandoned cart recovery emails for the email address %s.', 'pmpro-abandoned-cart-recovery' ), $email ) ); ?></p>
+		<p><?php echo esc_html( sprintf(
+			/* translators: %s is the email address */
+			__( 'You have successfully opted out of abandoned cart recovery emails for the email address %s.', 'pmpro-abandoned-cart-recovery' ),
+			$email
+		) ); ?></p>
 	</div>
 	<?php
 }
@@ -56,7 +60,7 @@ function pmproacr_show_opt_out_banner() {
 /**
  * Show a banner that the opt-out has failed.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmproacr_show_opt_out_failed_banner() {
 	// $_REQUEST['pmproacr_opt_out'] is the email address to opt out.
@@ -65,6 +69,10 @@ function pmproacr_show_opt_out_failed_banner() {
 	// Show the banner.
 	?>
 	<div class="pmproacr-opt-out-banner pmproacr-opt-out-banner-failed">
-		<p><?php echo esc_html( sprintf( __( 'There was an error processing your opt-out request. The email address %s is not a user on this site.', 'pmpro-abandoned-cart-recovery' ), $email ) ); ?></p>
+		<p><?php echo esc_html( sprintf(
+			/* translators: %s is the email address */
+			__( 'There was an error processing your opt-out request. The email address %s is not a user on this site.', 'pmpro-abandoned-cart-recovery' ),
+			$email
+		) ); ?></p>
 	<?php
 }

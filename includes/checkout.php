@@ -3,7 +3,7 @@
 /**
  * After a checkout is completed, update any in_progress recovery attempts to recovered.
  *
- * @since TBD
+ * @since 0.1
  *
  * @param int $user_id The ID of the user who completed the checkout.
  * @param MemberOrder $order The order that was completed.

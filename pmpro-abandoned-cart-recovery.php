@@ -31,7 +31,7 @@ require_once( PMPROACR_DIR . '/classes/class-pmproacr-recovery-attempts-list-tab
 /**
  * Set up the $wpdb table for this plugin.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmproacr_init() {
 	global $wpdb;

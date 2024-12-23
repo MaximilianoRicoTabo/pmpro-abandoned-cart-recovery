@@ -2,7 +2,7 @@
 /**
  * Add the reminder email templates.
  *
- * @since TBD
+ * @since 0.1
  *
  * @param $templates array The email templates.
  * @return array The email templates.
@@ -46,7 +46,7 @@ add_filter( 'pmproet_templates', 'pmproacr_email_templates' );
 /**
  * Send a reminder email.
  *
- * @since TBD
+ * @since 0.1
  *
  * @param object $recovery_attempt The recovery attempt.
  * @param int $reminder_number The reminder number.

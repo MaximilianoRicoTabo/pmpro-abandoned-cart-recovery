@@ -2,7 +2,7 @@
 /**
  * Process abandoned cart recovery attempts.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmproacr_cron_process_recovery_attempts() {
 	global $wpdb;
@@ -17,7 +17,7 @@ function pmproacr_cron_process_recovery_attempts() {
 	 * Filter the time until the first reminder.
 	 * By default, the first reminder is 1 hour after the token is created.
 	 *
-	 * @since TBD
+	 * @since 0.1
 	 *
 	 * @param int $seconds_until_reminder_1 The time in seconds until the first reminder.
 	 */
@@ -26,7 +26,7 @@ function pmproacr_cron_process_recovery_attempts() {
 	 * Filter the time until the second reminder.
 	 * By default, the second reminder is 23 hours after the first reminder (24 hours after the token is created).
 	 *
-	 * @since TBD
+	 * @since 0.1
 	 *
 	 * @param int $seconds_until_reminder_2 The time in seconds until the second reminder.
 	 */
@@ -35,7 +35,7 @@ function pmproacr_cron_process_recovery_attempts() {
 	 * Filter the time until the third reminder.
 	 * By default, the third reminder is 6 days after the second reminder (7 days after the token is created).
 	 *
-	 * @since TBD
+	 * @since 0.1
 	 *
 	 * @param int $seconds_until_reminder_3 The time in seconds until the third reminder.
 	 */
@@ -44,7 +44,7 @@ function pmproacr_cron_process_recovery_attempts() {
 	 * Filter the time until the order is marked as lost.
 	 * By default, the order is marked as lost 14 days after the token is created (7 days after the third reminder).
 	 *
-	 * @since TBD
+	 * @since 0.1
 	 *
 	 * @param int $seconds_until_lost The time in seconds until the order is marked as lost.
 	 */
@@ -138,7 +138,7 @@ function pmproacr_cron_process_recovery_attempts() {
 		 *
 		 * By default, we will attempt to recover an order for a user if the user does not already have a level. This filter can be used to change this behavior.
 		 *
-		 * @since TBD
+		 * @since 0.1
 		 *
 		 * @param bool $recover_order Whether to attempt to recover an order for a user.
 		 * @param object $order_to_recover The order to recover.
@@ -280,7 +280,7 @@ add_action( 'pmproacr_cron_process_recovery_attempts', 'pmproacr_cron_process_re
 /**
  * Schedule the cron job.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmproacr_activation() {
 	$next = wp_next_scheduled( 'pmproacr_cron_process_recovery_attempts' );
@@ -293,7 +293,7 @@ register_activation_hook( PMPROACR_BASE_FILE, 'pmproacr_activation' );
 /**
  * Clear the cron job.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmproacr_deactivation() {	
 	wp_clear_scheduled_hook( 'pmproacr_cron_process_recovery_attempts' );

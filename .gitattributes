@@ -1,4 +1,5 @@
 # Items to ignore when downloading a zip
+pmpro-abandoned-cart-recovery-banner.jpg export-ignore
+README.md export-ignore
 .gitattributes export-ignore
 .github export-ignore
-README.md export-ignore

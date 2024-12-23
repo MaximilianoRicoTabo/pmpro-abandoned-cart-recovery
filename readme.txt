@@ -1,8 +1,8 @@
 === Paid Memberships Pro - Abandoned Cart Recovery ===
 Contributors: strangerstudios
-Tags: paid memberships pro, pmpro, checkout, cart, abandoned, recovery
+Tags: paid memberships pro, pmpro, cart, abandoned, recovery
 Requires at least: 5.4
-Tested up to: 6.6
+Tested up to: 6.7
 Stable tag: 0.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -11,7 +11,13 @@ Recover lost revenue by capturing abandoned carts and following up with customer
 
 == Description ==
 
-TBD
+The Abandoned Cart Recovery Add On helps maximize your membership site's revenue by re-engaging users who did not complete checkout. Through automated, customizable email reminders, you can recover orders and convert interested visitors into paying members. Plus, the Add On includes reports to track recovered revenue and carts along the three-stage recovery in process.
+
+* Select which levels should send abandoned cart emails.
+* Automatically sends up to three email reminders for abandoned carts.
+* Fully customizable email templates for each reminder with opt-out options.
+* Detailed reporting of recovery attempts, recovered orders, and recovered revenue.
+* Privacy-focused integration with your site's existing privacy policy.
 
 == Installation ==
 
@@ -25,3 +31,6 @@ TBD
 Please post it in the issues section of GitHub and we'll fix it as soon as we can. Thanks for helping. https://github.com/strangerstudios/pmpro-abandoned-cart-recovery/issues
 
 == Changelog ==
+
+= 0.1 - 2024-12-23 =
+* Initial release

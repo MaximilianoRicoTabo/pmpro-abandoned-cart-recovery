@@ -8,7 +8,7 @@ class PMProACR_Recovery_Attempts_List_Table extends WP_List_Table {
 	/**
 	 * The text domain of this plugin.
 	 *
-	 * @since TBD
+	 * @since 0.1
 	 *
 	 * @access private
 	 * @var string $plugin_text_domain	The text domain of this plugin.
@@ -20,7 +20,7 @@ class PMProACR_Recovery_Attempts_List_Table extends WP_List_Table {
 	 *
 	 * @param string $plugin_text_domain Text domain of the plugin.
 	 *
-	 * @since TBD
+	 * @since 0.1
 	 */
 	public function __construct() {
 
@@ -41,7 +41,7 @@ class PMProACR_Recovery_Attempts_List_Table extends WP_List_Table {
 	/**
 	 * Sets up screen options for the abandoned cart recovery list table.
 	 *
-	 * @since TBD
+	 * @since 0.1
 	 */
 	public static function hook_screen_options() {
 		$list_table = new PMProACR_Recovery_Attempts_List_Table();
@@ -95,7 +95,7 @@ class PMProACR_Recovery_Attempts_List_Table extends WP_List_Table {
 	 *
 	 * Query, filter data, handle sorting, and pagination, and any other data-manipulation required prior to rendering
 	 *
-	 * @since TBD
+	 * @since 0.1
 	 */
 	public function prepare_items() {
 		
@@ -123,7 +123,7 @@ class PMProACR_Recovery_Attempts_List_Table extends WP_List_Table {
 	 *
 	 * The format is: 'internal-name' => 'Title'
 	 *
-	 * @since TBD
+	 * @since 0.1
 	 *
 	 * @return array
 	 */
@@ -151,7 +151,7 @@ class PMProACR_Recovery_Attempts_List_Table extends WP_List_Table {
 	 *
 	 * The second format will make the initial sorting order be descending
 	 *
-	 * @since TBD
+	 * @since 0.1
 	 *
 	 * @return array
 	 */
@@ -174,7 +174,7 @@ class PMProACR_Recovery_Attempts_List_Table extends WP_List_Table {
 	/**
 	 * Text displayed when no user data is available
 	 *
-	 * @since TBD
+	 * @since 0.1
 	 *
 	 * @return void
 	 */
@@ -384,7 +384,12 @@ class PMProACR_Recovery_Attempts_List_Table extends WP_List_Table {
 	public static function ouptut_order_data( $order_id, $level_id, $total, $datetime ) {
 		$level = pmpro_getLevel( $level_id );
 		$level_name = ! empty( $level ) ? $level->name : '#' . $level_id;
-		echo '<p>' . esc_html( sprintf( __( 'Level: %s (%s)', 'pmpro-abandoned-cart-recovery' ), $level_name, pmpro_formatPrice( $total ) ) ) . '</p>';
+		echo '<p>' . esc_html( sprintf(
+			/* translators: 1: level name, 2: total */
+			__( 'Level: %1$s (%2$s)', 'pmpro-abandoned-cart-recovery' ),
+			$level_name,
+			pmpro_formatPrice( $total )
+		) ) . '</p>';
 		echo '<p>' . esc_html( self::format_date( $datetime ) ) . '</p>';
 		// Show an edit link.
 		echo '<p><a href="' . esc_url( add_query_arg( array( 'page' => 'pmpro-orders', 'order' => $order_id ), admin_url( 'admin.php' ) ) ) . '">' . esc_html__( 'View Order', 'pmpro-abandoned-cart-recovery' ) . '</a></p>';
@@ -399,7 +404,7 @@ class PMProACR_Recovery_Attempts_List_Table extends WP_List_Table {
 	public static function format_date( $date ) {
 		return sprintf(
 			// translators: %1$s is the date and %2$s is the time.
-			__( '%1$s at %2$s', 'pmpro-abandoned-cart-recover' ),
+			__( '%1$s at %2$s', 'pmpro-abandoned-cart-recovery' ),
 			get_date_from_gmt( $date, get_option( 'date_format' ) ),
 			get_date_from_gmt( $date, get_option( 'time_format' ) )
 		);

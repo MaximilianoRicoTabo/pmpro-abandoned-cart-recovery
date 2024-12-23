@@ -2,7 +2,7 @@
 /**
  * Add options to level settings to enable Abandoned Cart Recovery.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmproacr_membership_level_before_content_settings() {
 	$edit_level_id = $_REQUEST['edit'];
@@ -32,7 +32,7 @@ function pmproacr_membership_level_before_content_settings() {
 							<label for="pmproacr_enabled_for_level"><?php esc_html_e( 'Enable Abandoned Cart Recovery', 'pmpro-abandoned-cart-recovery' ); ?></label>
 						</th>
 						<td>
-							<input type="checkbox" id="pmproacr_enabled_for_level" name="pmproacr_enabled_for_level" value="1" <?php echo $acr_checked; ?> />
+							<input type="checkbox" id="pmproacr_enabled_for_level" name="pmproacr_enabled_for_level" value="1" <?php echo esc_attr( $acr_checked ); ?> />
 							<label for="pmproacr_enabled_for_level"><?php esc_html_e( 'Enable Abandoned Cart Recovery for this level.', 'pmpro-abandoned-cart-recovery' ); ?></label>
 							<p class="description"><?php esc_html_e( 'Check the box to activate abandoned cart recovery for this level. Emails will be sent 1 hour, 1 day, and 1 week after the cart is abandoned. You can customize these emails on the Settings > Email Templates screen.', 'pmpro-abandoned-cart-recovery' ); ?></p>
 						</td>
@@ -48,7 +48,7 @@ add_action( 'pmpro_membership_level_before_content_settings', 'pmproacr_membersh
 /**
  * Save the Abandoned Cart Recovery settings for a membership level.
  *
- * @since TBD
+ * @since 0.1
  * @param int $save_id The ID of the membership level being saved.
  * @return void
  */

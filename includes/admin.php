@@ -3,7 +3,7 @@
 /**
  * Add the Abandoned Cart Recovery settings page.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmproacr_admin_add_page() {
 	$recovery_attempts_list_table_hook = add_submenu_page(
@@ -21,7 +21,7 @@ add_action( 'admin_menu', 'pmproacr_admin_add_page' );
 /**
  * Display the Abandoned Cart Recovery settings page.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmproacr_admin_page() {
 	$recovery_attempts_list_table = new PMProACR_Recovery_Attempts_List_Table();
@@ -41,7 +41,7 @@ $pmpro_reports['pmproacr_results'] = __('Abandoned Cart Recoveries', 'pmpro-aban
 /**
  * Add the Abandoned Cart Recovery report widget to the reports page.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmpro_report_pmproacr_results_widget() {
 	$past_30_days_data = pmproacr_get_results_data( get_gmt_from_date( date( 'Y-m-d H:i:s', current_time( 'timestamp' ) - DAY_IN_SECONDS * 30 ), 'Y-m-d H:i:s' ), current_time( 'Y-m-d H:i:s', true ), true );
@@ -86,7 +86,7 @@ function pmpro_report_pmproacr_results_widget() {
 /**
  * Calculate the Abandoned Cart Recovery report data between a given date range.
  *
- * @since TBD
+ * @since 0.1
  *
  * @param string $start_date The start date of the date range in the format 'Y-m-d'.
  * @param string $end_date The end date of the date range in the format 'Y-m-d'.

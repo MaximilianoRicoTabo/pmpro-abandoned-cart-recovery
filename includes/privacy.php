@@ -2,7 +2,7 @@
 /** 
  * Add suggested Privacy Policy language for Paid Memberships Pro - Abandoned Cart Recovery.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmproacr_add_privacy_policy_content() {
 	// Check for support.
@@ -23,7 +23,7 @@ add_action( 'admin_init', 'pmproacr_add_privacy_policy_content' );
 /**
  * Show a message on the Membership Checkout page related to our use of the user's data.
  *
- * @since TBD
+ * @since 0.1
  */
 function pmproacr_show_privacy_message() {
 	// Get the checkout level.
@@ -38,12 +38,22 @@ function pmproacr_show_privacy_message() {
 	if ( ! empty( $privacy_policy_page_id ) ) {
 		$privacy_policy_page = get_post( $privacy_policy_page_id );
 		if ( $privacy_policy_page instanceof WP_Post && $privacy_policy_page->post_status === 'publish' && $enabled ) {
-			$pmproacr_privacy_message = printf(
+			$pmproacr_privacy_message = '<p>' . sprintf(
 				/* translators: %s: Privacy Policy page URL */
-				__( '<p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="%s" target="_blank">privacy policy</a>.</p>', 'pmpro-abandoned-cart-recovery' ),
+				__( 'Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="%s" target="_blank">privacy policy</a>.', 'pmpro-abandoned-cart-recovery' ),
 				esc_url( get_permalink( $privacy_policy_page_id ) )
-			);
+			) . '</p>';
 		}
+	}
+
+	/**
+	 * Filter the message shown on the Membership Checkout page related to our use of the user's data.
+	 */
+	$pmproacr_privacy_message = apply_filters( 'pmproacr_privacy_message', $pmproacr_privacy_message );
+
+	// If the message is empty, return early.
+	if ( empty( $pmproacr_privacy_message ) ) {
+		return;
 	}
 
 	$allowed_html = array (
@@ -65,6 +75,6 @@ function pmproacr_show_privacy_message() {
 		'br' => array(),
 		'strong' => array(),
 	);
-	return apply_filters( 'pmproacr_privacy_message', wp_kses( $pmproacr_privacy_message, $allowed_html ) );
+	echo wp_kses( $pmproacr_privacy_message, $allowed_html );
 }
 add_action( 'pmpro_checkout_before_submit_button', 'pmproacr_show_privacy_message' );
