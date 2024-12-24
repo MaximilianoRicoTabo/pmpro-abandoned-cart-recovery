@@ -32,5 +32,5 @@ Please post it in the issues section of GitHub and we'll fix it as soon as we ca
 
 == Changelog ==
 
-= 0.1 - 2024-12-23 =
+= 0.1 - 2024-12-24 =
 * Initial release
