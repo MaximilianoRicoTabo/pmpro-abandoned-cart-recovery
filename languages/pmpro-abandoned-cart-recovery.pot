@@ -1,0 +1,284 @@
+# Copyright (C) 2025 Paid Memberships Pro
+# This file is distributed under the GPL-3.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: Paid Memberships Pro - Abandoned Cart Recovery 0.1\n"
+"Report-Msgid-Bugs-To: info@paidmembershipspro.com\n"
+"Last-Translator: Paid Memberships Pro <info@paidmembershipspro.com>\n"
+"Language-Team: Paid Memberships Pro <info@paidmembershipspro.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-02-17T10:45:26+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: pmpro-abandoned-cart-recovery\n"
+
+#. Plugin Name of the plugin
+#: pmpro-abandoned-cart-recovery.php
+msgid "Paid Memberships Pro - Abandoned Cart Recovery"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: pmpro-abandoned-cart-recovery.php
+msgid "https://www.paidmembershipspro.com/add-ons/abandoned-cart-recovery/"
+msgstr ""
+
+#. Description of the plugin
+#: pmpro-abandoned-cart-recovery.php
+msgid "Recover lost revenue by capturing abandoned carts and following up with customers to complete their purchase."
+msgstr ""
+
+#. Author of the plugin
+#: pmpro-abandoned-cart-recovery.php
+msgid "Paid Memberships Pro"
+msgstr ""
+
+#. Author URI of the plugin
+#: pmpro-abandoned-cart-recovery.php
+msgid "https://www.paidmembershipspro.com"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:52
+msgid "Recovery attempts per page"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:133
+msgid "ID"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:134
+msgid "User"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:135
+msgid "Token Order"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:136
+msgid "Status"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:137
+msgid "Reminder 1"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:138
+msgid "Reminder 2"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:139
+msgid "Reminder 3"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:140
+msgid "Recovered Order"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:183
+msgid "No recovery attempts found."
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:291
+msgid "deleted"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:293
+msgid "none"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:313
+msgid "In Progress"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:315
+msgid "Recovered"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:317
+msgid "Lost"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:319
+msgid "Unknown"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:333
+#: classes/class-pmproacr-recovery-attempts-list-table.php:348
+#: classes/class-pmproacr-recovery-attempts-list-table.php:362
+#: classes/class-pmproacr-recovery-attempts-list-table.php:375
+msgid "&#8212;"
+msgstr ""
+
+#. translators: 1: level name, 2: total
+#: classes/class-pmproacr-recovery-attempts-list-table.php:389
+msgid "Level: %1$s (%2$s)"
+msgstr ""
+
+#: classes/class-pmproacr-recovery-attempts-list-table.php:395
+msgid "View Order"
+msgstr ""
+
+#. translators: %1$s is the date and %2$s is the time.
+#: classes/class-pmproacr-recovery-attempts-list-table.php:407
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: includes/admin.php:11
+#: includes/admin.php:12
+#: includes/admin.php:33
+#: includes/privacy.php:14
+msgid "Abandoned Cart Recovery"
+msgstr ""
+
+#: includes/admin.php:40
+msgid "Abandoned Cart Recoveries"
+msgstr ""
+
+#: includes/admin.php:56
+msgid "Recovered Revenue"
+msgstr ""
+
+#: includes/admin.php:57
+msgid "Recovered Orders"
+msgstr ""
+
+#: includes/admin.php:58
+msgid "Recovery Attempts"
+msgstr ""
+
+#: includes/admin.php:63
+msgid "Past 30 Days"
+msgstr ""
+
+#: includes/admin.php:69
+msgid "Past 12 Months"
+msgstr ""
+
+#: includes/admin.php:75
+msgid "All Time"
+msgstr ""
+
+#: includes/emails.php:12
+msgid "Abandoned Cart Recovery - Reminder 1"
+msgstr ""
+
+#: includes/emails.php:13
+msgid "Your membership is waiting."
+msgstr ""
+
+#: includes/emails.php:14
+msgid "We noticed you started signing up for !!membership_level_name!! membership but did not complete the checkout process."
+msgstr ""
+
+#: includes/emails.php:16
+msgid "Click here to complete membership checkout now"
+msgstr ""
+
+#: includes/emails.php:18
+msgid "click here to opt out of future emails"
+msgstr ""
+
+#: includes/emails.php:19
+msgid "This email is sent as the first reminder to complete a purchase."
+msgstr ""
+
+#: includes/emails.php:23
+msgid "Abandoned Cart Recovery - Reminder 2"
+msgstr ""
+
+#: includes/emails.php:24
+msgid "Reminder: Your !!sitename!! membership is waiting."
+msgstr ""
+
+#: includes/emails.php:25
+msgid "It looks like you may have forgotten to complete checkout for the !!membership_level_name!! membership at !!sitename!!."
+msgstr ""
+
+#: includes/emails.php:27
+#: includes/emails.php:38
+msgid "Complete Your Purchase Now"
+msgstr ""
+
+#: includes/emails.php:29
+msgid "click here to opt out of these emails"
+msgstr ""
+
+#: includes/emails.php:30
+msgid "This email is sent as the second reminder to complete a purchase."
+msgstr ""
+
+#: includes/emails.php:34
+msgid "Abandoned Cart Recovery - Reminder 3"
+msgstr ""
+
+#: includes/emails.php:35
+msgid "Final Reminder: Complete membership checkout at !!sitename!! today."
+msgstr ""
+
+#: includes/emails.php:36
+msgid "This is your final reminder to complete your !!membership_level_name!! membership checkout at !!sitename!!."
+msgstr ""
+
+#: includes/emails.php:39
+msgid "This email is sent as the third reminder to complete a purchase."
+msgstr ""
+
+#: includes/level-settings.php:24
+msgid "Abandoned Cart Recovery Settings"
+msgstr ""
+
+#: includes/level-settings.php:32
+msgid "Enable Abandoned Cart Recovery"
+msgstr ""
+
+#: includes/level-settings.php:36
+msgid "Enable Abandoned Cart Recovery for this level."
+msgstr ""
+
+#: includes/level-settings.php:37
+msgid "Check the box to activate abandoned cart recovery for this level. Emails will be sent 1 hour, 1 day, and 1 week after the cart is abandoned. You can customize these emails on the Settings > Email Templates screen."
+msgstr ""
+
+#. translators: %s is the email address
+#: includes/opt-out.php:53
+msgid "You have successfully opted out of abandoned cart recovery emails for the email address %s."
+msgstr ""
+
+#. translators: %s is the email address
+#: includes/opt-out.php:74
+msgid "There was an error processing your opt-out request. The email address %s is not a user on this site."
+msgstr ""
+
+#: includes/privacy.php:15
+msgid "When a user begins membership checkout but does not complete the purchase within a specified time, the cart is considered abandoned."
+msgstr ""
+
+#: includes/privacy.php:16
+msgid "An email is sent to the user to complete the purchase via a link provided in the email."
+msgstr ""
+
+#: includes/privacy.php:17
+msgid "The user can unsubscribe from abandoned cart emails using the unsubscribe link in the emails."
+msgstr ""
+
+#. translators: %s: Privacy Policy page URL
+#: includes/privacy.php:43
+msgid "Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href=\"%s\" target=\"_blank\">privacy policy</a>."
+msgstr ""
+
+#: pmpro-abandoned-cart-recovery.php:56
+msgid "View Documentation"
+msgstr ""
+
+#: pmpro-abandoned-cart-recovery.php:56
+msgid "Docs"
+msgstr ""
+
+#: pmpro-abandoned-cart-recovery.php:57
+msgid "Visit Customer Support Forum"
+msgstr ""
+
+#: pmpro-abandoned-cart-recovery.php:57
+msgid "Support"
+msgstr ""
