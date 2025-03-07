@@ -41,7 +41,6 @@ function pmproacr_email_templates( $templates ) {
 
 	return $templates;
 }
-add_filter( 'pmproet_templates', 'pmproacr_email_templates' );
 
 /**
  * Send a reminder email.
@@ -52,9 +51,20 @@ add_filter( 'pmproet_templates', 'pmproacr_email_templates' );
  * @param int $reminder_number The reminder number.
  */
 function pmproacr_send_reminder_email( $recovery_attempt, $reminder_number ) {
+	//Bail if $reminder_number is not 1, 2, or 3.
+	if ( $reminder_number < 1 || $reminder_number > 3 ) {
+		return;
+	}
 	// Get the user.
 	$user  = get_userdata( $recovery_attempt->user_id );
 	$level = pmpro_getLevel( $recovery_attempt->token_level_id );
+
+	if ( class_exists( 'PMPro_Email_Template' ) ) {
+		$class_name = 'PMPro_Email_Template_PMProACR_Reminder_' . $reminder_number;
+		$send_email = new $class_name( $user, $level );
+		$send_email->send();
+		return;
+	}
 
 	// Send the email.
 	$email           = new PMProEmail();
@@ -77,3 +87,20 @@ function pmproacr_send_reminder_email( $recovery_attempt, $reminder_number ) {
 	);
 	$email->sendEmail();
 }
+
+/**
+ * Initialize the email templates.
+ *
+ * @since TBD
+ */
+function pmproacr_init_email_templates() {
+	if ( class_exists( 'PMPro_Email_Template' ) ) {
+		require_once( PMPROACR_DIR . '/classes/email-templates/class-pmpro-email-template-pmpro-abandoned-cart-recovery-reminder-1.php' );
+		require_once( PMPROACR_DIR . '/classes/email-templates/class-pmpro-email-template-pmpro-abandoned-cart-recovery-reminder-2.php' );
+		require_once( PMPROACR_DIR . '/classes/email-templates/class-pmpro-email-template-pmpro-abandoned-cart-recovery-reminder-3.php' );
+	} else {
+		// Legacy email templates.
+		add_filter( 'pmproet_templates', 'pmproacr_email_templates' );
+	}
+}
+add_action( 'init', 'pmproacr_init_email_templates', 8 );
