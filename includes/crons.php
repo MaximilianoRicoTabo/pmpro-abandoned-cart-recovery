@@ -50,14 +50,14 @@ function pmproacr_cron_process_recovery_attempts() {
 	 */
 	$seconds_until_lost = (int) apply_filters( 'pmproacr_time_until_lost', DAY_IN_SECONDS * 7 );
 
-	// Get all levels that have abandoned cart recovery enabled.
-	$enabled_levels = $wpdb->get_col(
-		$wpdb->prepare(
-			"SELECT DISTINCT pmpro_membership_level_id
-			FROM $wpdb->pmpro_membership_levelmeta
-			WHERE meta_key = 'pmproacr_enabled_for_level' AND meta_value = 'yes'"
-		)
+
+	$query = $wpdb->prepare(
+		'SELECT DISTINCT pmpro_membership_level_id FROM wp_pmpro_membership_levelmeta
+		 WHERE meta_key = %s AND meta_value = %s',
+		'pmproacr_enabled_for_level',
+		'yes'
 	);
+	$enabled_levels = $wpdb->get_col( $query );
 
 	// Send the first reminder.
 	// Get all token orders older than the current time - seconds_until_reminder_1 but after the last timestamp checked.
