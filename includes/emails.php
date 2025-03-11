@@ -94,13 +94,75 @@ function pmproacr_send_reminder_email( $recovery_attempt, $reminder_number ) {
  * @since TBD
  */
 function pmproacr_init_email_templates() {
-	if ( class_exists( 'PMPro_Email_Template' ) ) {
-		require_once( PMPROACR_DIR . '/classes/email-templates/class-pmpro-email-template-pmpro-abandoned-cart-recovery-reminder-1.php' );
-		require_once( PMPROACR_DIR . '/classes/email-templates/class-pmpro-email-template-pmpro-abandoned-cart-recovery-reminder-2.php' );
-		require_once( PMPROACR_DIR . '/classes/email-templates/class-pmpro-email-template-pmpro-abandoned-cart-recovery-reminder-3.php' );
-	} else {
-		// Legacy email templates.
-		add_filter( 'pmproet_templates', 'pmproacr_email_templates' );
-	}
+    if ( class_exists( 'PMPro_Email_Template' ) ) {
+        require_once( PMPROACR_DIR . '/classes/email-templates/class-pmpro-email-template-pmpro-abandoned-cart-recovery-reminder-1.php' );
+        require_once( PMPROACR_DIR . '/classes/email-templates/class-pmpro-email-template-pmpro-abandoned-cart-recovery-reminder-2.php' );
+        require_once( PMPROACR_DIR . '/classes/email-templates/class-pmpro-email-template-pmpro-abandoned-cart-recovery-reminder-3.php' );
+        // Add the filter to send the test emails.
+        add_filter( 'pmpro_email_template_send_test_email', 'pmproacr_send_test_email', 10, 2 );
+        add_filter( 'pmpro_email_template_send_test_email_params', 'pmproacr_send_test_email_params', 10, 2 );
+    } else {
+        // Legacy email templates.
+        add_filter( 'pmproet_templates', 'pmproacr_email_templates' );
+    }
 }
 add_action( 'init', 'pmproacr_init_email_templates', 8 );
+
+
+/**
+ * Filters send test email params callback.
+ * 
+ * @param array $params The original parameters.
+ * @param string $template The original template.
+ * @return array The parameters.
+ * @since TBD
+ */
+function pmproacr_send_test_email_params( $params, $template ) {
+    $fake_user = new WP_User( 1, 'testuser', 'test@test.com' );
+    $fake_user->display_name = 'Test User';
+    $params['user'] = $fake_user;
+
+    $fake_level = new stdClass();
+    $fake_level->name = 'Test Level';
+    $fake_level->id = 1;
+    $params['level'] = $fake_level;
+
+    $params['reminder_number'] = str_replace( 'pmproacr_reminder_', '', $template );
+
+    $params['user'] = $fake_user;
+    $params['level'] = $fake_level;
+
+    return $params;
+}
+
+/**
+ * Filters send test email callback.
+ * 
+ * @param string $email The original email.
+ * @param array $params The original parameters.
+ * @return string The name of the function to call.
+ * @since TBD
+ */
+function pmproacr_send_test_email( $email, $params ) {
+    return 'send_abandoned_cart_recovery_reminder_email_test';
+}
+
+/**
+ * Sends a test email.
+ * 
+ * @param object $user The user.
+ * @param object $level The level.
+ * @param int $reminder_number The reminder number.
+ * @return bool True if the email was sent, false otherwise.
+ * @since TBD
+ */
+function send_abandoned_cart_recovery_reminder_email_test( $user, $level, $reminder_number ) {
+    //pmproacr_send_test_email and pmproacr_send_test_email_params filters were added after v3.4+ but just in case.
+    if( ! class_exists( 'PMPro_Email_Template' ) ) {
+        return false;
+    }
+
+    $class_name = 'PMPro_Email_Template_PMProACR_Reminder_' . $reminder_number;
+    $send_email = new $class_name( $user, $level );
+    return $send_email->send();
+}
