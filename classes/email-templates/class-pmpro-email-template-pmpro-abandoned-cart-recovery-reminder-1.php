@@ -148,6 +148,22 @@ class PMPro_Email_Template_PMProACR_Reminder_1 extends PMPro_Email_Template {
 		$user = $this->user;
 		return empty( $user->display_name ) ? esc_html__( 'User', 'pmpro-abandoned-cart-recovery' ) : $user->display_name;
 	}
+
+	/**
+	 * Returns the arguments to send the test email from the abstract class.
+	 *
+	 * @since TBD
+	 *
+	 * @return array The arguments to send the test email from the abstract class.
+	 */
+	public static function get_test_email_constructor_args() {
+		global $current_user;
+		$pmpro_test_level = new StdClass();
+		$pmpro_test_level->id = 1;
+		$pmpro_test_level->name = esc_html__( 'Test Level', 'pmpro-abandoned-cart-recovery' );
+
+		return array( $current_user, $pmpro_test_level );
+	}
 }
 /**
  * Register the email template.
