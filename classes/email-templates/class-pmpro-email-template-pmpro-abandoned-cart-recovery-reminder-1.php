@@ -97,14 +97,9 @@ class PMPro_Email_Template_PMProACR_Reminder_1 extends PMPro_Email_Template {
 	 */
 	public static function get_email_template_variables_with_description() {
 		return array(
-			'!!user_login!!' => esc_html__( 'The user\'s login name.', 'pmpro-abandoned-cart-recovery' ),
-			'!!user_email!!' => esc_html__( 'The user\'s email address.', 'pmpro-abandoned-cart-recovery' ),
-			'!!display_name!!' => esc_html__( 'The user\'s display name.', 'pmpro-abandoned-cart-recovery' ),
-			'!!membership_id!!' => esc_html__( 'The ID of the membership level.', 'pmpro-abandoned-cart-recovery' ),
 			'!!membership_level_name!!' => esc_html__( 'The name of the membership level.', 'pmpro-abandoned-cart-recovery' ),
 			'!!checkout_url!!' => esc_html__( 'The URL to the checkout page.', 'pmpro-abandoned-cart-recovery' ),
 			'!!opt_out_url!!' => esc_html__( 'The URL to opt out of future emails.', 'pmpro-abandoned-cart-recovery' ),
-
 		);
 	}
 
@@ -126,7 +121,6 @@ class PMPro_Email_Template_PMProACR_Reminder_1 extends PMPro_Email_Template {
 			'membership_id' => $level->id,
 			'membership_level_name' => $level->name,
 			'checkout_url' => pmpro_login_url( pmpro_url( 'checkout', '?pmpro_level=' . $level->id ) ),
-			'levels_url' => pmpro_login_url( pmpro_url( 'levels' ) ),
 			'opt_out_url' => add_query_arg( 'pmproacr_opt_out', urlencode( $user->user_email ), home_url() ),
 		);
 		return $email_template_variables;
@@ -153,6 +147,22 @@ class PMPro_Email_Template_PMProACR_Reminder_1 extends PMPro_Email_Template {
 	public function get_recipient_name() {
 		$user = $this->user;
 		return empty( $user->display_name ) ? esc_html__( 'User', 'pmpro-abandoned-cart-recovery' ) : $user->display_name;
+	}
+
+	/**
+	 * Returns the arguments to send the test email from the abstract class.
+	 *
+	 * @since TBD
+	 *
+	 * @return array The arguments to send the test email from the abstract class.
+	 */
+	public static function get_test_email_constructor_args() {
+		global $current_user;
+		$pmpro_test_level = new StdClass();
+		$pmpro_test_level->id = 1;
+		$pmpro_test_level->name = esc_html__( 'Test Level', 'pmpro-abandoned-cart-recovery' );
+
+		return array( $current_user, $pmpro_test_level );
 	}
 }
 /**
